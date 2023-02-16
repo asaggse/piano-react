@@ -1,7 +1,7 @@
 ## Virtual Piano
 
 
-This is a simple virtual piano web app built using React. It allows users to play notes by clicking on the keys or by using their computer keyboard. The app includes multiple octaves and black keys, and the piano sounds are provided by [@fuhton](https://github.com/fuhton) on GitHub.
+This is a simple virtual piano web app built using React. It allows users to play notes by clicking on the keys or by using their computer keyboard. The app includes multiple octaves and black keys, and the piano sounds are provided by [fuhton](https://github.com/fuhton) on GitHub.
 
 ### Technologies Used
 * React
