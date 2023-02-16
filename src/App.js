@@ -74,7 +74,7 @@ function App() {
         <div className='key black--key' onMouseDown={() => playSound('Db5')}></div>
         <div className='key black--key' onMouseDown={() => playSound('Eb5')}></div>
         <div className='key' onMouseDown={() => playSound('F5')}></div>
-        <div className='key black-key' onMouseDown={() => playSound('Gb5')}></div>
+        <div className='key black--key' onMouseDown={() => playSound('Gb5')}></div>
         <div className='key black--key' onMouseDown={() => playSound('Ab5')}></div>
         <div className='key black--key' onMouseDown={() => playSound('Bb5')}></div>
         <div className='key' onMouseDown={() => playSound('C6')}></div>
