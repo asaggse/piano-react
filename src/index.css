@@ -50,8 +50,13 @@ html {
   border-radius: 0 0 3px 3px;
 }
 
-.key:hover{
+.key:hover {
   cursor: pointer;
+}
+
+.key:active, .key.playing  {
+  background-color: #c2c2c2;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.6), 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 .key.black--key::after {
@@ -66,18 +71,20 @@ html {
 
 @media (max-width: 768px) {
   #piano {
-      width: 358px;
+    width: 358px;
   }
+
   .keys {
-      width: 318px;
+    width: 318px;
   }
 }
 
-@media (min-width: 769px) and (max-width: 1199px){
+@media (min-width: 769px) and (max-width: 1199px) {
   #piano {
-      width: 675px;
+    width: 675px;
   }
+
   .keys {
-      width: 633px;
+    width: 633px;
   }
 }
