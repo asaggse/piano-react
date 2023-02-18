@@ -1,5 +1,15 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import './App.css';
+
+const noteMap = {
+  'Q': 'C4', 'W': 'Db4', 'E': 'Eb4', 
+  'A': 'F4', 'S': 'Gb4', 'D': 'Ab4',
+  'Z': 'Bb4', 'R': 'C5', 'T': 'Db5',
+  'Y': 'Eb5', 'F': 'F5', 'G': 'Gb5',
+  'H': 'Ab5', 'J': 'Bb5', 'U': 'C6',
+  'I': 'Db6', 'O': 'Eb6', 'V': 'F6',
+  'B': 'Gb6', 'N': 'Ab6', 'M': 'Bb6'
+};
 
 function App() {
   const audioRef = useRef(null);
@@ -11,79 +21,58 @@ function App() {
     audioElement.play();
   }
 
-  function handleKeyDown(event) {
-    const key = event.key.toUpperCase();
-    switch (key) {
-      case 'A':
-        playSound('C4');
-        break;
-      case 'W':
-        playSound('Db4');
-        break;
-      case 'S':
-        playSound('D4');
-        break;
-      case 'E':
-        playSound('Eb4');
-        break;
-      case 'D':
-        playSound('E4');
-        break;
-      case 'F':
-        playSound('F4');
-        break;
-      case 'T':
-        playSound('Gb4');
-        break;
-      case 'G':
-        playSound('G4');
-        break;
-      case 'Y':
-        playSound('Ab4');
-        break;
-      case 'H':
-        playSound('A4');
-        break;
-      case 'U':
-        playSound('Bb4');
-        break;
-      case 'J':
-        playSound('B4');
-        break;
-      case 'K':
-        playSound('C5');
-        break;
-      default:
-        break;
+  function handleKeyDown(e) {
+    const noteName = noteMap[e.key.toUpperCase()];
+    if (noteName) {
+      const keyElement = document.querySelector(`.key[data-note="${noteName}"]`);
+      keyElement.classList.add('playing');
+      playSound(noteName);
     }
   }
 
-  document.addEventListener('keydown', handleKeyDown);
+  function handleKeyUp(e) {
+    const noteName = noteMap[e.key.toUpperCase()];
+    if (noteName) {
+      const keyElement = document.querySelector(`.key[data-note="${noteName}"]`);
+      keyElement.classList.remove('playing');
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, []);
 
   return (
     <div id='piano'>
       <div className='keys'>
-        <div className='key' onMouseDown={() => playSound('C4')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Db4')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Eb4')}></div>
-        <div className='key' onMouseDown={() => playSound('F4')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Gb4')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Ab4')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Bb4')}></div>
-        <div className='key' onMouseDown={() => playSound('C5')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Db5')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Eb5')}></div>
-        <div className='key' onMouseDown={() => playSound('F5')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Gb5')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Ab5')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Bb5')}></div>
-        <div className='key' onMouseDown={() => playSound('C6')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Db6')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Eb6')}></div>
-        <div className='key' onMouseDown={() => playSound('F6')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Gb6')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Ab6')}></div>
-        <div className='key black--key' onMouseDown={() => playSound('Bb6')}></div>
+        <div className='key' data-note='C4' onMouseDown={() => playSound('C4')}></div>
+        <div className='key black--key' data-note='Db4' onMouseDown={() => playSound('Db4')}></div>
+        <div className='key black--key' data-note='Eb4' onMouseDown={() => playSound('Eb4')}></div>
+        <div className='key' data-note='F4' onMouseDown={() => playSound('F4')}></div>
+        <div className='key black--key' data-note='Gb4' onMouseDown={() => playSound('Gb4')}></div>
+        <div className='key black--key' data-note='Ab4' onMouseDown={() => playSound('Ab4')}></div>
+        <div className='key black--key' data-note='Bb4' onMouseDown={() => playSound('Bb4')}></div>
+
+        <div className='key' data-note='C5' onMouseDown={() => playSound('C5')}></div>
+        <div className='key black--key' data-note='Db5' onMouseDown={() => playSound('Db5')}></div>
+        <div className='key black--key' data-note='Eb5' onMouseDown={() => playSound('Eb5')}></div>
+        <div className='key' data-note='F5' onMouseDown={() => playSound('F5')}></div>
+        <div className='key black--key' data-note='Gb5' onMouseDown={() => playSound('Gb5')}></div>
+        <div className='key black--key' data-note='Ab5' onMouseDown={() => playSound('Ab5')}></div>
+        <div className='key black--key' data-note='Bb5' onMouseDown={() => playSound('Bb5')}></div>
+
+        <div className='key' data-note='C6' onMouseDown={() => playSound('C6')}></div>
+        <div className='key black--key' data-note='Db6' onMouseDown={() => playSound('Db6')}></div>
+        <div className='key black--key' data-note='Eb6' onMouseDown={() => playSound('Eb6')}></div>
+        <div className='key' data-note='F6' onMouseDown={() => playSound('F6')}></div>
+        <div className='key black--key' data-note='Gb6' onMouseDown={() => playSound('Gb6')}></div>
+        <div className='key black--key' data-note='Ab6' onMouseDown={() => playSound('Ab6')}></div>
+        <div className='key black--key' data-note='Bb6' onMouseDown={() => playSound('Bb6')}></div>
       </div>
       <audio ref={audioRef} />
     </div>
