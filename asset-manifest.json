@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/piano-react/static/css/main.ce7bfdd4.css",
-    "main.js": "/piano-react/static/js/main.e835c5f2.js",
+    "main.css": "/piano-react/static/css/main.f2b9e05c.css",
+    "main.js": "/piano-react/static/js/main.58a4bca9.js",
     "static/js/787.6a58bdc3.chunk.js": "/piano-react/static/js/787.6a58bdc3.chunk.js",
     "static/media/Db8.mp3": "/piano-react/static/media/Db8.119f56c1faec026cac75.mp3",
     "static/media/A0.mp3": "/piano-react/static/media/A0.2b45dae82e877f8c62de.mp3",
@@ -93,12 +93,12 @@
     "static/media/Gb6.mp3": "/piano-react/static/media/Gb6.b1cdfb6f5c7206354242.mp3",
     "static/media/Gb7.mp3": "/piano-react/static/media/Gb7.0e0d2c634574a6f84284.mp3",
     "index.html": "/piano-react/index.html",
-    "main.ce7bfdd4.css.map": "/piano-react/static/css/main.ce7bfdd4.css.map",
-    "main.e835c5f2.js.map": "/piano-react/static/js/main.e835c5f2.js.map",
+    "main.f2b9e05c.css.map": "/piano-react/static/css/main.f2b9e05c.css.map",
+    "main.58a4bca9.js.map": "/piano-react/static/js/main.58a4bca9.js.map",
     "787.6a58bdc3.chunk.js.map": "/piano-react/static/js/787.6a58bdc3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce7bfdd4.css",
-    "static/js/main.e835c5f2.js"
+    "static/css/main.f2b9e05c.css",
+    "static/js/main.58a4bca9.js"
   ]
 }
